@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Series & Movie Tracker</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"
+    integrity="sha512-wS6VWtjvRcylhyoArkahZUkzZFeKB7ch/MHukprGSh1XIidNvHG1rxPhyFnL73M0FC1YXPIXLRDAoOyRJNni/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-title">
+                Series Tracker
+            </div>
+            <div class="nav-links">
+                
+            </div>
+        </nav>
+    </header>
+    <label for="Add new series">Add new series</label>
+    <input type="text" id="searchbar">
+    <section id="search-results">
+        
+    </section>
+    <section id="tracker">
+        
+    </section>
+    <section id="modal" class="">
+        <div class="modal-wrapper">
+            <form class="form" id="form">
+                <div class="form-wrapper">
+                    <div class="form-left">
+                        <img src="https://m.media-amazon.com/images/M/MV5BN2FmMjg0Y2YtYmMyYi00MTBjLTllYzMtN2VjYzRhOTVmNWRlXkEyXkFqcGdeQXVyNDIzMzcwNjc@._V1_SX300.jpg" />
+                        <h2>Six Feet Under</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque, veniam?</p>
+                        <p><a href="https://www.imdb.com/title/${movieDetail.imdbID}/" target="_blank">IMDB:</a>
+                            8</p>
+                    </div>
+                    <div class="form-right">
+                        <label for="season">Season:</label> <input type="text" inputmode="numeric" pattern="[0-9]">
+                        <label for="episode">Episode:</label> <input type="text" inputmode="numeric" pattern="[0-9]+">
+                        <label for="comment">Comment:</label> <textarea name="" id="" cols="30" rows="10"></textarea>
+                        <label for="soap2day link">Soap2day:</label> <input type="text">
+                        <label for="myflixer link">Myflixer:</label> <input type="text">
+                    </div>
+                </div>
+                <input type="submit" value="Add Series">
+            </form>
+        </div>
+    </section>
+    <script src="./utils.js"></script>
+    <script src="./autocomplete.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
