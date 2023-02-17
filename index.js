@@ -25,7 +25,7 @@ const autoCompleteConfig = {
 
 createAutoComplete({
     ...autoCompleteConfig,
-    root: document.querySelector('#tracker'),
+    root: document.querySelector('#search-results'),
     onOptionSelect(movie) {
         onMovieSelect(movie)
     },}
