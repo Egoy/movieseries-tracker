@@ -8,11 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.3/axios.min.js"
     integrity="sha512-wS6VWtjvRcylhyoArkahZUkzZFeKB7ch/MHukprGSh1XIidNvHG1rxPhyFnL73M0FC1YXPIXLRDAoOyRJNni/g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Lato:ital,wght@0,400;0,700;1,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
     <header>
-        <nav>
+        <nav class="nav">
             <div class="nav-title">
                 Series Tracker
             </div>
@@ -23,13 +27,61 @@
     </header>
     <label for="Add new series">Add new series</label>
     <input type="text" id="searchbar">
-    <section id="search-results">
-        
-    </section>
     <section id="tracker">
-        
+        <div class="results">
+            <a class="search-item">
+                <div class="imgBox">
+                    <img src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" />
+                </div>
+                <div class="title">
+                    The Avengers (2012)
+                </div>
+                <div class="plot">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, veritatis!
+                </div>
+            </a>
+            <a class="search-item">
+                <div class="imgBox">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" />
+                </div>
+                <div class="title">
+                    The Avengers (2012)
+                </div>
+                <div class="plot">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, veritatis!
+                </div>
+            </a>
+            <a class="search-item">
+                <div class="imgBox">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" />
+                </div>
+                <div class="title">
+                    The Avengers (2012)
+                </div>
+                <div class="plot">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, veritatis!
+                </div>
+            </a>
+            <a class="search-item">
+                <div class="imgBox">
+                    <img
+                        src="https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg" />
+                </div>
+                <div class="title">
+                    The Avengers (2012)
+                </div>
+                <div class="plot">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum, veritatis!
+                </div>
+            </a>
+        </div>
     </section>
-    <section id="modal" class="">
+
+    <section id="search-results">
+    </section>
+    <!-- <section id="modal" class="">
         <div class="modal-wrapper">
             <form class="form" id="form">
                 <div class="form-wrapper">
@@ -51,7 +103,7 @@
                 <input type="submit" value="Add Series">
             </form>
         </div>
-    </section>
+    </section> -->
     <script src="./utils.js"></script>
     <script src="./autocomplete.js"></script>
     <script src="./index.js"></script>

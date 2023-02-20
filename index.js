@@ -2,8 +2,12 @@ const autoCompleteConfig = {
     renderOption(movie) {
         const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
         return `
-            <img src="${imgSrc}" />
-            ${movie.Title} (${movie.Year})
+            <div class=imgBox>
+                <img src="${imgSrc}" />
+            </div>
+            <div class="title">
+                ${movie.Title} (${movie.Year})
+            </div>
         `;
     },
     inputValue(movie) {

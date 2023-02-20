@@ -12,18 +12,13 @@ const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fe
     const onInput = async event => {
         const items = await fetchData(event.target.value);
 
-        if (!items.length) {
-            dropdown.classList.remove('is-active');
-            return;
-        }
-
         resultsWrapper.innerHTML = '';
 
         for (let item of items) {
             const option = document.createElement('a');
             option.classList.add('search-item')
             option.innerHTML = renderOption(item);
-            
+            console.log(item);
             option.addEventListener('click', () => {
                 input.value = inputValue(item);
                 onOptionSelect(item);

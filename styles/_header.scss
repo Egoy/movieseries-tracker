@@ -1,0 +1,12 @@
+header {
+    height: 60px;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: blue;
+    }
+}
