@@ -73,7 +73,7 @@
         z-index: -1;
         img {
             object-fit: cover;
-            transition: .7s ease-in-out;
+            transition: .3s ease-in-out;
         }
     }
     .title {
@@ -96,33 +96,14 @@
         color: white;
         font-size: clamp(.7rem, 5vw, 1rem);
         padding: 20px;
-        transition: 1s ease-in-out;
     }
 }
 
 @include for-tablet-landscape-up {
     .search-item {
-        .title {
-            top: -200px;
-            transition: .7s ease-in-out;
-        }
-
-        .plot {
-            bottom: -150px;
-            transition: .7s ease-in-out;
-        }
-
         &:hover {
             .imgBox img {
                 scale: 1.2;
-            }
-
-            .title {
-                top: 0;
-            }
-
-            .plot {
-                bottom: 0;
             }
         }
     }

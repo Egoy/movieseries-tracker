@@ -60,7 +60,7 @@ header .nav {
 .results .imgBox img {
   -o-object-fit: cover;
      object-fit: cover;
-  transition: 0.7s ease-in-out;
+  transition: 0.3s ease-in-out;
 }
 .results .title {
   font-family: "Abel", sans-serif;
@@ -82,25 +82,37 @@ header .nav {
   color: white;
   font-size: clamp(0.7rem, 5vw, 1rem);
   padding: 20px;
-  transition: 1s ease-in-out;
 }
 
 @media (min-width: 900px) {
-  .search-item .title {
-    top: -200px;
-    transition: 0.7s ease-in-out;
-  }
-  .search-item .plot {
-    bottom: -150px;
-    transition: 0.7s ease-in-out;
-  }
   .search-item:hover .imgBox img {
     scale: 1.2;
   }
-  .search-item:hover .title {
-    top: 0;
-  }
-  .search-item:hover .plot {
-    bottom: 0;
-  }
+}
+.modal-wrapper {
+  background-color: red;
+  height: 1000px;
+  display: grid;
+  place-items: center;
+}
+.modal-wrapper .form {
+  max-width: 800px;
+  height: 500px;
+  background-color: green;
+}
+.modal-wrapper .form-wrapper {
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.modal-wrapper .form-left {
+  display: inline;
+}
+.modal-wrapper .form-left img {
+  height: 300px;
+}
+.modal-wrapper .form-right {
+  position: absolute;
 }/*# sourceMappingURL=style.css.map */

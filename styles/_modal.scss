@@ -1,0 +1,27 @@
+.modal-wrapper {
+    background-color: red;
+    height: 1000px;
+    display: grid;
+    place-items: center;
+    .form {
+        max-width: 800px;
+        height: 500px;
+        background-color: green;
+        &-wrapper {
+            width: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        &-left {
+            display: inline;
+            img {
+                height: 300px;
+            }
+        }
+        &-right {
+            position: absolute;
+        }
+    }
+}
