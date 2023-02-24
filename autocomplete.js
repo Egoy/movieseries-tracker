@@ -24,7 +24,6 @@ const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fe
                 onOptionSelect(item);
             })
             resultsWrapper.appendChild(option);
-            console.log(item)
         }
     };
 

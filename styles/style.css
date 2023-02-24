@@ -39,6 +39,7 @@ header .nav {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  z-index: 1;
 }
 .results .cards {
   position: relative;
@@ -103,34 +104,184 @@ header .nav {
   left: 0;
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: fill;
+     object-fit: fill;
 }
 
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.8);
+  place-items: center;
+  transition: 0.2s;
+}
 .modal-wrapper {
-  background-color: red;
-  height: 1000px;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  background-color: rgb(3, 3, 3);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.4s;
+}
+.modal-left {
+  width: auto;
+  z-index: 2000;
+  height: auto;
+}
+.modal-right {
+  color: white;
+  position: relative;
+  padding: 40px;
+}
+.modal-form {
+  position: absolute;
+  inset: 0;
+  transform: translateX(100%);
+  transition: 0.6s;
+  height: auto;
+  background-color: rgb(3, 3, 3);
+  width: 100%;
   display: grid;
   place-items: center;
 }
-.modal-wrapper .form {
-  max-width: 800px;
-  height: 500px;
-  background-color: green;
+.modal-form .form {
+  background-color: rgb(3, 3, 3);
+  width: 80%;
+  height: 100%;
+  padding: 40px;
 }
-.modal-wrapper .form-wrapper {
-  width: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.modal-form .form .inputBox {
   position: relative;
+  font-size: 1.2rem;
+  margin: 20px 0;
+  width: 100%;
+  overflow: hidden;
 }
-.modal-wrapper .form-left {
-  display: inline;
+.modal-form .form .inputBox:nth-child(1) {
+  margin-right: 20px;
 }
-.modal-wrapper .form-left img {
-  height: 300px;
+.modal-form .form .inputBox:nth-child(1), .modal-form .form .inputBox:nth-child(2) {
+  width: 20%;
+  display: inline-block;
+  margin-bottom: 10px;
 }
-.modal-wrapper .form-right {
+.modal-form .form .inputBox input, .modal-form .form .inputBox textarea {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  width: 100%;
+  color: whitesmoke;
+}
+.modal-form .form .inputBox input:focus ~ label, .modal-form .form .inputBox input:valid ~ label {
+  top: -200px;
+}
+.modal-form .form .inputBox textarea {
+  resize: none;
+}
+.modal-form .form .inputBox textarea:valid ~ label {
+  left: -200px;
+}
+.modal-form .form .inputBox label {
   position: absolute;
+  top: 0;
+  left: 0;
+  margin-bottom: 5px;
+  transition: 0.5s;
+  pointer-events: none;
+  font-size: 1rem;
+  color: whitesmoke;
+}
+.modal-form .form .inputBox i {
+  width: auto;
+  height: 2px;
+  display: block;
+  border: 0.5px solid orange;
+}
+.modal .title {
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+.modal .subtitle {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+  color: rgb(201, 199, 199);
+}
+.modal .rating {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  color: rgb(201, 199, 199);
+}
+.modal .rating span {
+  margin-right: 10px;
+}
+.modal .rating-votes {
+  font-size: 1rem;
+}
+.modal .plot {
+  margin-bottom: 5px;
+  font-size: 1.2rem;
+}
+.modal .imdblink {
+  margin-bottom: 40px;
+}
+.modal .imdblink a {
+  text-decoration: none;
+  color: rgb(255, 179, 0);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+.modal .button {
+  padding: 10px 20px;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  border: 2px solid orange;
+  color: #fff;
+  position: relative;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.modal .button:hover {
+  z-index: 20;
+  color: #333;
+}
+.modal .button:hover::after {
+  z-index: -2;
+  right: 0;
+}
+.modal .button::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 200px;
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  background-color: orange;
+}
+
+@media (max-width: 599px) {
+  .modal-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1rem;
+  }
+  .modal-left {
+    width: 300px;
+    height: auto;
+  }
 }/*# sourceMappingURL=style.css.map */

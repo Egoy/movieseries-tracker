@@ -1,8 +1,18 @@
 const openModal = (series) => {
     const modal = document.querySelector('#modal');
-    modal.classList.add('active');
-    modal.innerHTML = modalTemplate(series.data);
-    const formWindow = document.querySelector('#form')
+    modal.style.display = 'grid';
+    modal.innerHTML = modalTemplate(series);
+    const formWrapper = document.querySelector('.modal-form');
+    const formWindow = document.querySelector('#form');
+    const addToListButton = document.querySelector('#openform');
+    addToListButton.addEventListener('click', () => {
+        formWrapper.style.transform = 'translateX(0)';
+    })
+    modal.addEventListener('click',(event)=> {
+        if(modal === event.target) {
+            modal.style.display = 'none'
+        }
+    })
     formWindow.addEventListener('submit', (e)=> {
         e.preventDefault();
         const newSeries = {
@@ -13,7 +23,6 @@ const openModal = (series) => {
             image: series.Poster,
             dateWatched: logDate()
         }
-        console.log(newSeries)
     })
 }
 
@@ -27,46 +36,73 @@ function logDate() {
     return currentDate
 }
 
-const modalTemplate = (movieDetail) => {
+const modalTemplate = (seriesDetail) => {
     return `
         <div class="modal-wrapper">
-            <form class="form" id="form">
-                <div class="form-wrapper">
-                    <div class="form-left">
-                        <h2>${movieDetail.Title} (${movieDetail.Year})</h2>
-                        <img src="${movieDetail.Poster}" />
-                        <p>${movieDetail.Plot}</p>
-                        <p><a href="https://www.imdb.com/title/${movieDetail.imdbID}/" target="_blank">IMDB:</a> ${movieDetail.imdbRating}</p>
+            <div class="modal-left">
+                <img src="${seriesDetail.Poster}" />
+            </div>
+            <div class="modal-right">
+                <div class="modal-info">
+                    <div class="title">
+                        <h2>${seriesDetail.Title}</h2>
                     </div>
-                    <div class="form-right">
+                    <div class="subtitle">
+                        <div class="subtitle-year">
+                            ${seriesDetail.Year}
+                        </div>
+                        <div class="subtitle-runtime">
+                            ${seriesDetail.Runtime}
+                        </div>
+                        <div class="subtitle-genre">
+                            ${seriesDetail.Genre}
+                        </div>
+                    </div>
+                    <div class="rating">
+                        ${seriesDetail.imdbRating}<span>/10</span>
+                        <div class="rating-votes">
+                        (${seriesDetail.imdbVotes})
+                        </div>
+                    </div>
+                    <div class="plot">
+                        ${seriesDetail.Plot}
+                    </div>
+                    <div class="imdblink">
+                        <a href="https://imdb.com/title/${seriesDetail.imdbID}" target="_blank">Read More</a>
+                    </div>
+                    <button id="openform" class="button">Add to List</button>
+                </div>
+                <div class="modal-form">
+                    <form class="form" id="form">
                         <div class="inputBox">
-                            <input type="text" name="season" id="season" required inputmode="numeric" pattern="[0-9]"/>
-                            <span>Season</span>
+                            <input type="text" name="season" id="season" required inputmode="numeric" pattern="[0-9]" />
+                            <label>Season</label>
                             <i></i>
                         </div>
                         <div class="inputBox">
-                            <input type="text" name="episode" id="episode" required inputmode="numeric" pattern="[0-9]"/>
-                            <span>Episode</span>
+                            <input type="text" name="episode" id="episode" required inputmode="numeric" pattern="[0-9]" />
+                            <label>Episode</label>
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="s2day" id="s2day" required />
+                            <label>S2day Link</label>
+                            <i></i>
+                        </div>
+                        <div class="inputBox">
+                            <input type="text" name="myFlixer" id="myFlixer" required />
+                            <label>Myflixer Link</label>
                             <i></i>
                         </div>
                         <div class="inputBox">
                             <textarea id="comment" name="comment" rows="4" cols="50" placeholder="Insert comment here"></textarea>
-                            <span>Comment</span>
+                            <label>Comment</label>
                             <i></i>
                         </div>
-                        <div class="inputBox">
-                            <input type="text" name="s2day" id="s2day" required/>
-                            <span>S2day Link</span>
-                            <i></i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="text" name="myFlixer" id="myFlixer" required/>
-                            <span>Myflixer Link</span>
-                            <i></i>
-                        </div>
-                    </div>
+                        <button class="button" type="submit" value="submit">Add Series</button>
+                    </form>
                 </div>
-                <input type="submit" value="Add Series">
-            </form>
-        </div>    `
+            </div>
+        </div>
+        `
 }

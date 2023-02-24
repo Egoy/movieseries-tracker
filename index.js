@@ -1,22 +1,20 @@
 const autoCompleteConfig = {
-    renderOption(movie) {
-        const imgSrc = movie.Poster === 'N/A' ? '' : movie.Poster;
+    renderOption(series) {
+        const imgSrc = series.Poster === 'N/A' ? '' : series.Poster;
         return `
                 <div class="imgBox">
                     <img src="${imgSrc}" alt="">
                 </div>
                 <div class="content">
                     <div class="details">
-                        <h2>${movie.Title}</h2>
-                        <h3>(${movie.Year})</h3>
-                        <p>${movie.Rating}/10</p>
-                        <a href="https://www.imdb.com/title/${movie.imdbID}"</a>
+                        <h2>${series.Title}</h2>
+                        <h3>(${series.Year})</h3>
                     </div>
                 </div>
         `;
     },
-    inputValue(movie) {
-        return movie.Title;
+    inputValue(series) {
+        return series.Title;
     },
     async fetchData(searchTerm) {
     const response = await axios.get('https://www.omdbapi.com/', {
@@ -48,5 +46,6 @@ const onSeriesSelect = async (series) => {
             i: series.imdbID
         }
     });
-    openModal(response);
+    console.log(response.data)
+    openModal(response.data);
 };

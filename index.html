@@ -29,50 +29,48 @@
     <input type="text" id="searchbar">
     <section id="search-results" class="search-results">
     </section>
-    <!-- <section id="modal" class="modal">
-        <div class="modal-wrapper">
-            <form class="form" id="form">
-                <div class="form-wrapper">
-                    <div class="form-left">
-                        <h2>${movieDetail.Title} (${movieDetail.Year})</h2>
-                        <img src="https://m.media-amazon.com/images/M/MV5BZjkzMmU5MjMtODllZS00OTA5LTk2ZTEtNjdhYjZhMDA5ZTRhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_.jpg" />
-                        <p>${movieDetail.Plot}</p>
-                        <p><a href="https://www.imdb.com/title/${movieDetail.imdbID}/" target="_blank">IMDB:</a>
-                            ${movieDetail.imdbRating}</p>
+<section id="modal" class="modal">
+    <div class="modal-wrapper">
+        <div class="modal-left">
+            <img
+                src="https://m.media-amazon.com/images/M/MV5BZjQwNDE3NGUtMjljMi00OWI4LTljYjktZmMyNWJkMTI1NjZhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_SX300.jpg">
+        </div>
+        <div class="modal-right">
+            <div class="modal-info">
+                <div class="title">
+                    <h2>Dexter: New Blood</h2>
+                </div>
+                <div class="subtitle">
+                    <div class="subtitle-year">
+                        2021–2022
                     </div>
-                    <div class="form-right">
-                        <div class="inputBox">
-                            <input type="text" name="season" id="season" required inputmode="numeric" pattern="[0-9]" />
-                            <span>Season</span>
-                            <i></i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="text" name="episode" id="episode" required inputmode="numeric" pattern="[0-9]" />
-                            <span>Episode</span>
-                            <i></i>
-                        </div>
-                        <div class="inputBox">
-                            <textarea id="comment" name="comment" rows="4" cols="50"
-                                placeholder="Insert comment here"></textarea>
-                            <span>Comment</span>
-                            <i></i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="text" name="s2day" id="s2day" required />
-                            <span>S2day Link</span>
-                            <i></i>
-                        </div>
-                        <div class="inputBox">
-                            <input type="text" name="myFlixer" id="myFlixer" required />
-                            <span>Myflixer Link</span>
-                            <i></i>
-                        </div>
+                    <div class="subtitle-runtime">
+                        2 min
+                    </div>
+                    <div class="subtitle-genre">
+                        Crime, Drama, Mystery
                     </div>
                 </div>
-                <input type="submit" value="Add Series">
-            </form>
+                <div class="rating">
+                    8.1<span>/10</span>
+                    <div class="rating-votes">
+                        (90,606)
+                    </div>
+                </div>
+                <div class="plot">
+                    Set 10 years after Dexter Morgan went missing in the eye of Hurricane Laura, he is now living under
+                    an assumed name in Upstate New York, Iron Lake, far from his original home in Miami.
+                </div>
+                <div class="imdblink">
+                    <a href="https://imdb.com/title/tt14164730">Read More</a>
+                </div>
+                <button id="openform" class="button">Add to List</button>
+            </div>
+            <div class="modal-form">
+            </div>
         </div>
-    </section> -->
+    </div>
+</section>
     <script src="./modal.js"></script>
     <script src="./utils.js"></script>
     <script src="./autocomplete.js"></script>
