@@ -1,3 +1,8 @@
+window.addEventListener('load', () => {
+    seriesList = JSON.parse(localStorage.getItem('seriesList')) || [];
+    displaySeries();
+})
+
 const autoCompleteConfig = {
     renderOption(series) {
         const imgSrc = series.Poster === 'N/A' ? '' : series.Poster;
@@ -46,6 +51,5 @@ const onSeriesSelect = async (series) => {
             i: series.imdbID
         }
     });
-    console.log(response.data)
     openModal(response.data);
 };

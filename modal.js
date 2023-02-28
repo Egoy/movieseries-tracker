@@ -1,6 +1,9 @@
 const openModal = (series) => {
+    seriesList = JSON.parse(localStorage.getItem('seriesList')) || [];
+    const searchWrapper = document.querySelector('.results');
     const modal = document.querySelector('#modal');
     modal.style.display = 'grid';
+    modal.style.scale = '1'
     modal.innerHTML = modalTemplate(series);
     const formWrapper = document.querySelector('.modal-form');
     const formWindow = document.querySelector('#form');
@@ -10,7 +13,7 @@ const openModal = (series) => {
     })
     modal.addEventListener('click',(event)=> {
         if(modal === event.target) {
-            modal.style.display = 'none'
+            modal.style.display = 'none';
         }
     })
     formWindow.addEventListener('submit', (e)=> {
@@ -23,9 +26,26 @@ const openModal = (series) => {
             image: series.Poster,
             dateWatched: logDate()
         }
+        seriesList.push(newSeries);
+        localStorage.setItem('seriesList', JSON.stringify(seriesList));
+        modal.style.display = 'none'
+        searchWrapper.innerHTML = ''
+        displaySeries();
     })
 }
 
+function displaySeries() {
+    const tracker = document.querySelector('#series-tracker');
+    tracker.innerHTML = ''
+    for (let series of seriesList) {
+        const card = document.createElement('div');
+        card.classList.add('series-list')
+        card.innerHTML = `
+            <div>fdjalkfjdaklf</div>
+        `
+        tracker.appendChild(card);
+    }
+}
 function logDate() {
     const today = new Date()
     const week = today.toLocaleString('en-us', {  weekday: 'long' });
@@ -99,7 +119,7 @@ const modalTemplate = (seriesDetail) => {
                             <label>Comment</label>
                             <i></i>
                         </div>
-                        <button class="button" type="submit" value="submit">Add Series</button>
+                        <button id="submitForm" class="button" type="submit" value="submit">Add Series</button>
                     </form>
                 </div>
             </div>
