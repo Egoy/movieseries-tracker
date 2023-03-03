@@ -1,0 +1,184 @@
+.tracker {
+    width: 100%;
+    background-color: red;
+    height: auto;
+    overflow: hidden;
+}
+
+.series {
+    height: 400px;
+    position: relative;
+    margin: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    &-front {
+        height: 400px;
+        position: relative;
+        cursor: pointer;
+        z-index: 2;
+        width: 300px;
+        &:hover {
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background-color: rgba($color: #333, $alpha: .2);
+                // filter: blur(2px);
+            }
+            img {
+                filter: blur(2px);
+            }
+            .series-plot {
+                bottom: 0px;
+                z-index: 3;
+            }
+        }
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+    &-title {
+        position: absolute;
+        top: 0;
+        padding: 10px;
+        width: 60%;
+        background-color: orange;
+        margin-top: 10px;
+        // text-align: center;
+        border-radius: 0 10px 10px 0;
+        z-index: 2;
+    }
+    &-plot {
+        position: absolute;
+        bottom: -100px;
+        color: #333;
+        // opacity: .5;
+        padding: .5rem;
+        transition: all .5s ease;
+        z-index: 3;
+        background-color: orange;
+    }
+    &-back {
+        width: 300px;
+        height: 100%;
+        background-color: white;
+        padding: 1rem;
+        transform: translateX(0%);
+        position: absolute;
+        transition: .7s ease-in-out;
+    }
+    &-info {
+        background-color: orange;
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 40px;
+        h2 {
+            font-size: clamp(.6rem, 7vw, 1.2rem);
+            display: inline;
+            margin-right: 10px;
+        }
+        h3 {
+            font-size: clamp(.4rem, 7vw, .8rem);
+        }
+    }
+
+    &-links {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // align-self: flex-end;
+        margin-bottom: 20px;
+        gap: 10px;
+        a {
+            width: 50%;
+            text-align: center;
+            text-decoration: none;
+            color: black;
+            background-color: orange;
+            padding: .5rem 1rem;
+            // margin: 0 .4rem;
+            border-radius: 4px;
+            &:hover {
+                background-color: #333;
+                color: orange;
+            }
+        }
+    }
+    &-inputs {
+        display: flex;
+        // flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
+        // gap: 20px;
+        .inputs {
+            &-container {
+                // background-color: red;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+            }
+            &-box {
+                font-size: 1rem;
+                padding: .2em .5rem;
+                border: 1px solid orange;
+                input {
+                    width: 20%;
+                    padding: .2rem .5rem;
+                    align-self: flex-start;
+                    border: none;
+                    &:focus-visible {
+                        border: 1px solid orange;
+                    }
+                }
+            }
+        }
+    }
+    &-buttons {
+        display: flex;
+        // align-items: center;
+        position: relative;
+        margin-top: 10px;
+        margin-bottom: 30px;
+        button {
+            // font-size: 2rem;
+            background-color: transparent;
+            border: none;
+            position: relative;
+            color: orange;
+            cursor: pointer;
+            // margin-top: 20px;
+            width: 100%;
+            &:hover {
+                    >.tooltip {
+                        visibility: visible;
+                    }
+                    > i {
+                        color: #333;
+                    }
+                }
+            i {
+                font-size: 2rem;
+                transition: .2s ease-in-out;
+            }
+        }
+        .tooltip {
+            position: absolute;
+            bottom: -30px;
+            visibility: hidden;
+            padding: .2rem;
+            background-color: #333;
+            border-radius: 3px;
+            font-size: 1rem;
+            transition: .2s ease;
+            text-align: center;
+            left: 50%;
+            transform: translateX(-50%);
+            text-transform: uppercase;
+        }
+    }
+}

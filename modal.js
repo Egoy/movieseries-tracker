@@ -23,8 +23,9 @@ const openModal = (series) => {
             season: parseInt(e.target.elements.season.value),
             episode: parseInt(e.target.elements.episode.value),
             comment: e.target.elements.comment.value,
+            plot: series.Plot,
             image: series.Poster,
-            dateWatched: logDate()
+            dateWatched: new Date(),
         }
         seriesList.push(newSeries);
         localStorage.setItem('seriesList', JSON.stringify(seriesList));
@@ -36,13 +37,11 @@ const openModal = (series) => {
 
 function displaySeries() {
     const tracker = document.querySelector('#series-tracker');
-    tracker.innerHTML = ''
+    // tracker.innerHTML = ''
     for (let series of seriesList) {
         const card = document.createElement('div');
         card.classList.add('series-list')
-        card.innerHTML = `
-            <div>fdjalkfjdaklf</div>
-        `
+        card.innerHTML = renderCards(series)
         tracker.appendChild(card);
     }
 }
@@ -95,12 +94,12 @@ const modalTemplate = (seriesDetail) => {
                 <div class="modal-form">
                     <form class="form" id="form">
                         <div class="inputBox">
-                            <input type="text" name="season" id="season" required inputmode="numeric" pattern="[0-9]" />
+                            <input type="text" name="season" id="season" required inputmode="numeric" pattern="[0-9]+" />
                             <label>Season</label>
                             <i></i>
                         </div>
                         <div class="inputBox">
-                            <input type="text" name="episode" id="episode" required inputmode="numeric" pattern="[0-9]" />
+                            <input type="text" name="episode" id="episode" required inputmode="numeric" pattern="[0-9]+" />
                             <label>Episode</label>
                             <i></i>
                         </div>
