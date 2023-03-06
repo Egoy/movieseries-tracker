@@ -20,7 +20,7 @@ const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fe
             option.classList.add('cards')
             option.innerHTML = renderOption(item);
             option.addEventListener('click', () => {
-                input.value = inputValue(item);
+                // input.value = inputValue(item);
                 onOptionSelect(item);
             })
             resultsWrapper.appendChild(option);

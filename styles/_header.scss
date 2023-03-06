@@ -1,12 +1,52 @@
 header {
-    height: 60px;
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    // height: 60px;
+    background-color: #1d3548;
     .nav {
-        max-width: 600px;
         margin: 0 auto;
-        background-color: blue;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem;
+        &-title {
+            font-size: clamp(1rem, 7vw, 2rem);
+            text-transform: uppercase;
+            color: white;
+        }
+        &-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 50px;
+            ul {
+                display: inline-block;
+                li {
+                    display: inline-block;
+                    margin: 0 1rem;
+                    a {
+                        text-decoration: none;
+                        font-size: clamp(1rem, 8vw, 1.5rem);
+                        text-transform: uppercase;
+                        color: white;
+                        &.active {
+                            border-bottom: 2px solid white;
+                        }
+                    }
+                }
+            }
+            .searchBox {
+                position: relative;
+                input {
+                    padding: 1.2rem;
+                    font-size: clamp(1rem, 8vw, 1.5rem);
+                }
+                i {
+                    position: absolute;
+                    right: 20px;
+                    top: 50%;
+                    font-size: clamp(1rem, 8vw, 1.5rem);
+                    transform: translateY(-50%);
+                }
+            }
+        }
     }
 }

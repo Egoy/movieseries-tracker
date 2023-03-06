@@ -21,73 +21,35 @@
     <header>
         <nav class="nav">
             <div class="nav-title">
-                Series Tracker
+                My Series Tracker
             </div>
             <div class="nav-links">
-                
+                <ul>
+                    <li><a href="#" class="active">Series</a></li>
+                    <li><a href="./movies.html">Movies</a></li>
+                    <li><a href="./archive.html">Archived</a></li>
+                </ul>
+                <div class="searchBox">
+                    <input type="text" id="searchbar" placeholder="Add a new series">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
             </div>
         </nav>
     </header>
-    <label for="Add new series">Add new series</label>
-    <input type="text" id="searchbar">
+
     <section id="search-results" class="search-results">
     </section>
     <section id="modal" class="modal">
 
     </section>
-    <section id="series-tracker" class="tracker">
-        <div class="series">
-            <div class="series-front">
-                <img src="https://m.media-amazon.com/images/M/MV5BZjkzMmU5MjMtODllZS00OTA5LTk2ZTEtNjdhYjZhMDA5ZTRhXkEyXkFqcGdeQXVyOTA3MTMyOTk@._V1_SX300.jpg" alt="">
-                <div class="series-title"><h1>Dexter</h1></div>
-                <div class="series-plot"><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Soluta quas, iure esse labore maxime neque. Qui at est quasi rerum?</p></div>
-            </div>
-            <div class="series-back">
-                <div class="series-info">
-                    <h2>Season: 1</h2>
-                    <h2>Episode: 1</h2>
-                    <h3>Thursday, February 23 | 7:18 PM</h3>
-                </div>
-                <div class="series-panel">
-                    <div class="series-links">
-                        <a href="" target="_blank">Soap2day</a>
-                        <a href="" target="_blank">MyFlixer</a>
-                    </div>
-                    <div class="series-panel">
-                        <div class="series-inputs">
-                            <div class="inputs-container">
-                                <div class="inputs-box">
-                                    <label for="season">Season:</label>
-                                    <input id="inputSeason" type="text" inputmode="numeric" pattern="[0-99]" readonly
-                                        value="${newSeries.season}">
-                                </div>
-                                <div class="inputs-box">
-                                    <label for="season">Episode:</label>
-                                    <input id="inputEpisode" type="text" inputmode="numeric" pattern="[0-99]" readonly
-                                        value="${newSeries.episode}">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="series-buttons">
-                            <button id="saveButton"><span class="tooltip tooltip-1">Save</span><i
-                                    class="fa-solid fa-floppy-disk"></i></button>
-                            <button id="editButton"><span class="tooltip tooltip-2">Edit</span><i class="fa-solid fa-trash"></i></button>
-                            <button id="saveButton"><span class="tooltip tooltip-3">Archive</span><i
-                                    class="fa-solid fa-box-archive"></i></button>
-                        </div>
-                    </div>
-                    <div class="series-comment">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus, voluptatibus.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="tracker">
+        <section id="series-tracker">
+        </section>
+    </div>
     <script src="./modal.js"></script>
     <script src="./utils.js"></script>
     <script src="./autocomplete.js"></script>
     <script src="./cards.js"></script>
-
     <script src="./index.js"></script>
 </body>
 </html>

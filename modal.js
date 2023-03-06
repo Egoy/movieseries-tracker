@@ -3,7 +3,6 @@ const openModal = (series) => {
     const searchWrapper = document.querySelector('.results');
     const modal = document.querySelector('#modal');
     modal.style.display = 'grid';
-    modal.style.scale = '1'
     modal.innerHTML = modalTemplate(series);
     const formWrapper = document.querySelector('.modal-form');
     const formWindow = document.querySelector('#form');
@@ -25,7 +24,9 @@ const openModal = (series) => {
             comment: e.target.elements.comment.value,
             plot: series.Plot,
             image: series.Poster,
-            dateWatched: new Date(),
+            s2day: e.target.elements.s2day.value,
+            flixer: e.target.elements.myFlixer.value,
+            dateWatched: logDate(),
         }
         seriesList.push(newSeries);
         localStorage.setItem('seriesList', JSON.stringify(seriesList));
@@ -33,26 +34,6 @@ const openModal = (series) => {
         searchWrapper.innerHTML = ''
         displaySeries();
     })
-}
-
-function displaySeries() {
-    const tracker = document.querySelector('#series-tracker');
-    // tracker.innerHTML = ''
-    for (let series of seriesList) {
-        const card = document.createElement('div');
-        card.classList.add('series-list')
-        card.innerHTML = renderCards(series)
-        tracker.appendChild(card);
-    }
-}
-function logDate() {
-    const today = new Date()
-    const week = today.toLocaleString('en-us', {  weekday: 'long' });
-    const month= today.toLocaleString('default', {  month: 'long' });
-    const day = today.getDate()
-    const current_time = today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    const currentDate = `${week}, <br> ${month} ${day} | ${current_time}`
-    return currentDate
 }
 
 const modalTemplate = (seriesDetail) => {
