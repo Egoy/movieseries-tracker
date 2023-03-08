@@ -1,4 +1,5 @@
 function displaySeries() {
+    archives = JSON.parse(localStorage.getItem('archives')) || [];
     const seriesWrapper = document.querySelector('#series-tracker');
     seriesWrapper.innerHTML = '';
     seriesList.forEach((series, index) => {
@@ -90,6 +91,21 @@ function displaySeries() {
             }
             seriesList.push(series)
             localStorage.setItem('seriesList', JSON.stringify(seriesList));
+            displaySeries();
+        })
+        archiveButton.addEventListener('click', (e) => {
+            e.preventDefault()
+            const archivedList = series;
+            archives.push(archivedList);
+            localStorage.setItem('archives', JSON.stringify(archives));
+            archivedSeries = seriesList.filter(n => n != series);
+            localStorage.setItem('seriesList', JSON.stringify(archivedSeries));
+            displaySeries();
+        })
+        deleteButton.addEventListener('click', (e) => {
+            e.preventDefault()
+            deletedSeries = seriesList.filter(n => n != series);
+            localStorage.setItem('seriesList', JSON.stringify(deletedSeries));
             displaySeries();
         })
     })
