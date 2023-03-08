@@ -40,9 +40,8 @@ createAutoComplete({
     root: document.querySelector('#search-results'),
     onOptionSelect(series) {
         onSeriesSelect(series)
-    },}
+    }}
 );
-
 
 const onSeriesSelect = async (series) => {
     const response = await axios.get('https://www.omdbapi.com/', {

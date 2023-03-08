@@ -1,4 +1,4 @@
-const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fetchData }) => {
+const createAutoComplete = ({ root, renderOption, onOptionSelect, fetchData }) => {
     root.innerHTML = `
         <div class="results"></div>
     `;
@@ -11,11 +11,11 @@ const createAutoComplete = ({ root, renderOption, onOptionSelect, inputValue, fe
     const onInput = async event => {
         const items = await fetchData(event.target.value);
 
-        const filteredResult = items.filter(item => item.Type == 'series');
+        const filterResult = items.filter(item => item.Type == 'series');
 
         resultsWrapper.innerHTML = '';
 
-        for (let item of filteredResult) {
+        for (let item of filterResult) {
             const option = document.createElement('div');
             option.classList.add('cards')
             option.innerHTML = renderOption(item);
