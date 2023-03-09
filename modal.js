@@ -18,6 +18,7 @@ const openModal = (series) => {
     formWindow.addEventListener('submit', (e)=> {
         e.preventDefault();
         const newSeries = {
+            imdbID: series.imdbID,
             title: series.Title,
             season: parseInt(e.target.elements.season.value),
             episode: parseInt(e.target.elements.episode.value),

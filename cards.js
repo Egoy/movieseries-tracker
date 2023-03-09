@@ -93,7 +93,7 @@ function displaySeries() {
             localStorage.setItem('seriesList', JSON.stringify(seriesList));
             displaySeries();
         })
-        archiveButton.addEventListener('click', (e) => {
+        archiveButton.addEventListener('click', (e)  => {
             e.preventDefault()
             const archivedList = series;
             archives.push(archivedList);
