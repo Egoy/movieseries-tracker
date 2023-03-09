@@ -21,6 +21,10 @@ What's working:
   * Deleting a series on your watch list.
   
   
- What's not working:
+What's not working:
   * Movie tracker
   * Archive page
+  * Mobile responsiveness
+  
+Bugs found:
+  * List won't auto update when deleting or putting a series on the archive.
