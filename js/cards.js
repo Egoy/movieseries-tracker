@@ -109,6 +109,13 @@ function displaySeries() {
             displaySeries();
         })
     })
+    new Sortable(seriesWrapper, {
+            animation: 300,
+            onEnd: function(e) {
+                seriesList.splice(e.newIndex, 0, seriesList.splice(e.oldIndex, 1)[0])
+                localStorage.setItem('seriesList', JSON.stringify(seriesList));
+            }
+    })
 }
 
 function logDate() {
