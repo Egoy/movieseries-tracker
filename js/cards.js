@@ -40,20 +40,22 @@ function displaySeries() {
                         <a href="${series.s2day}" target="_blank">Soap2day</a>
                         <a href="${series.flixer}" target="_blank">MyFlixer</a> 
             `
+        const seriesSeason = document.createElement('div')
+            seriesSeason.classList.add('inputs-box')    
+            seriesSeason.innerHTML = `
+                                    <label for="season">Season:</label>
+                                    <input id="inputSeason" type="text" inputmode="numeric" pattern="[0-99]" value="${series.season}">
+                                    `;
+        const seriesEpisode = document.createElement('div')
+            seriesEpisode.classList.add('inputs-box')    
+            seriesEpisode.innerHTML = `
+                                    <label for="season">Season:</label>
+                                    <input id="inputSeason" type="text" inputmode="numeric" pattern="[0-99]" value="${series.episode}">
+                                    `;
         const seriesInputs = document.createElement('div');
             seriesInputs.classList.add('series-inputs');
-            seriesInputs.innerHTML = `
-                            <div class="inputs-box">
-                                <label for="season">Season:</label>
-                                <input id="inputSeason" type="text" inputmode="numeric" pattern="[0-99]"
-                                    value="${series.season}">
-                            </div>
-                            <div class="inputs-box">
-                                <label for="season">Episode:</label>
-                                <input id="inputEpisode" type="text" inputmode="numeric" pattern="[0-99]"
-                                    value="${series.episode}">
-                            </div>
-            `
+            seriesInputs.append(seriesSeason)
+            seriesInputs.append(seriesEpisode )
         const seriesButtons = document.createElement('div');
         const saveButton = document.createElement('button');
             saveButton.innerHTML = `<span class="tooltip tooltip-1">Save</span><i class="fa-solid fa-floppy-disk"></i>`;
@@ -78,8 +80,11 @@ function displaySeries() {
         card.appendChild(seriesBack);
         seriesWrapper.appendChild(card);
         saveButton.addEventListener('click', e => {
-            const newSeason = document.querySelector('#inputSeason');
-            const newEpisode = document.querySelector('#inputEpisode');
+            e.preventDefault();
+            const newSeason = seriesSeason.querySelector('input')
+            const newEpisode = seriesEpisode.querySelector('input')
+            // const newSeason = document.querySelector('#inputSeason');
+            // const newEpisode = document.querySelector('#inputEpisode');
             const newComment = document.querySelector('#inputComment');
             series.season = newSeason.value;
             series.episode = newEpisode.value;
@@ -89,6 +94,7 @@ function displaySeries() {
             if (index > -1) {
                 seriesList.splice(index, 1)
             }
+            console.log(series.episode)
             seriesList.push(series)
             localStorage.setItem('seriesList', JSON.stringify(seriesList));
             displaySeries();
